@@ -1,6 +1,6 @@
 import yaml
 import psycopg2
-from SQLalchemy import create_engine
+from sqlalchemy import create_engine
 import pandas as pd
 
 #class definition
@@ -19,10 +19,7 @@ class RDSDatabaseConnector:
 
     def init_db_engine(self):
 
-        engine_credentials_string = (f"{self.the_loaded_file['RDS_DATABASE_TYPE']} + {self.the_loaded_file['RDS_DBAPI']}://
-        {self.the_loaded_file['RDS_USER']}:{self.the_loaded_file['RDS_PASSWORD']}@{self.the_loaded_file['RDS_HOST']}:
-        {self.the_loaded_file['RDS_PORT']}/{self.the_loaded_file['RDS_DATABASE']}"
-        )
+        engine_credentials_string = (f"{self.the_loaded_file['RDS_DATABASE_TYPE']}+{self.the_loaded_file['RDS_DBAPI']}://{self.the_loaded_file['RDS_USER']}:{self.the_loaded_file['RDS_PASSWORD']}@{self.the_loaded_file['RDS_HOST']}:{self.the_loaded_file['RDS_PORT']}/{self.the_loaded_file['RDS_DATABASE']}")
         engine = create_engine(engine_credentials_string)
         engine.connect()
         return engine
@@ -41,7 +38,11 @@ class RDSDatabaseConnector:
         #save DataFrame to csv file
         loan_payments.to_csv(csv_path, index = False)
         print(f"DataFrame saved to {csv_path}")
-        #return the file path
-        return csv_path
-       
+
+
 connector = RDSDatabaseConnector("credentials")
+engine = connector.init_db_engine()
+df = connector.RDS_db_data_extract(engine, "loan_payments")
+filename = "loan_payments.csv"
+output_directory = "E:\WilmingtonConsultingLimitedyeJan2015\AICore\exploratory-data-analysis---customer-loans-in-finance908"
+connector.save_df_to_csv(df, filename, output_directory)
