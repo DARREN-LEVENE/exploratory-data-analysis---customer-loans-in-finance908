@@ -13,7 +13,7 @@ class RDSDatabaseConnector:
         '''
         Initialiser method which will take in a dictionary of credentials as the parameter
         Attribute:
-            self.the_loaded_file: the loaded the yaml file with credentials
+            self.the_loaded_file: the loaded yaml file with credentials
         '''
          
         self.the_loaded_file = self.read_yaml_data(credentials)
@@ -28,7 +28,6 @@ class RDSDatabaseConnector:
         '''
         with open(f'{filename}.yaml','r') as f:
             output = yaml.safe_load(f)
-            print(output)
             return output
 
     def init_db_engine(self):
@@ -55,7 +54,6 @@ class RDSDatabaseConnector:
 
         with engine.connect() as conn:
             df = pd.read_sql_table(table_name, conn)
-        df.head()
         return df
 
     def save_df_to_csv(self, df, csv_filename, output_directory):
@@ -73,10 +71,11 @@ class RDSDatabaseConnector:
         df.to_csv(csv_path, index = False)
         print(f"DataFrame saved to {csv_path}")
 
+if __name__ == '__main__':
 
-connector = RDSDatabaseConnector("credentials")
-engine = connector.init_db_engine()
-df = connector.RDS_db_data_extract(engine, "loan_payments")
-filename = "loan_payments.csv"
-output_directory = "E:\WilmingtonConsultingLimitedyeJan2015\AICore\exploratory-data-analysis---customer-loans-in-finance908"
-connector.save_df_to_csv(df, filename, output_directory)
+    connector = RDSDatabaseConnector("credentials")
+    engine = connector.init_db_engine()
+    df = connector.RDS_db_data_extract(engine, "loan_payments")
+    filename = "loan_payments.csv"
+    output_directory = "E:\WilmingtonConsultingLimitedyeJan2015\AICore\exploratory-data-analysis---customer-loans-in-finance908"
+    connector.save_df_to_csv(df, filename, output_directory)
