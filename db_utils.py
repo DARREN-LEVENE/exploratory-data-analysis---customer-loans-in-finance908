@@ -54,7 +54,7 @@ class RDSDatabaseConnector:
 
         with engine.connect() as conn:
             df = pd.read_sql_table(table_name, conn)
-        return df
+        return df   
 
     def save_df_to_csv(self, df, csv_filename, output_directory):
         '''
