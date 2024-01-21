@@ -43,10 +43,12 @@ class Plotter:
     def correlation_heatmap (df):
         df = df.select_dtypes(include = "number")
         selected_corr = df.corr()
-        return sns.heatmap(selected_corr, annot = True, cmap = "coolwarm")
+        fig, ax = plt.subplots(figsize=(20, 20))
+        return sns.heatmap(selected_corr, annot = True, cmap = "coolwarm", ax=ax)
     
 
     def qq_plotter (self, column, df):
 
         qq_plot = qqplot(df[column], scale = 1, line = "q", fit = True)
         return pyplot.show()
+    
