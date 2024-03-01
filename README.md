@@ -19,6 +19,8 @@ Developed on Python 3.12.2 Required libraries:
 - numpy
 - matplotlib
 - seaborn
+- ipykernel
+- nbformat
 - plotly
 - statsmodels
 - yaml
