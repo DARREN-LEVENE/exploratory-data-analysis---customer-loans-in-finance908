@@ -1,4 +1,4 @@
-Exploratory Data Analysis 
+# Exploratory Data Analysis 
 # Customer Loans in Finance
 
 ![alt text](https://github.com/DARREN-LEVENE/exploratory-data-analysis---customer-loans-in-finance908/blob/main/Images/image-1.png)
