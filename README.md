@@ -33,13 +33,21 @@ Developed on Python 3.8.8. Required libraries:
 ![Tree diagram](https://github.com/DARREN-LEVENE/exploratory-data-analysis---customer-loans-in-finance908/blob/main/tree.png?raw=true)
 
 Data_visualisation.py - contains graphing methods
+
 db_utils.py - contains the extractor class, running it with your own yaml file will create a connection and extract a table from a database storing it as a csv file
+
 df_info.py - contains methods which summarise some key statistics in the dataframe
+
 df_null_imputes.py - handles the imputations for the cleaning of the file
+
 df_transformations.py - contains methods to handle the data type conversions
+
 EDA_customer_loans.ipynb - is the main notebook file which contains the cleaning and analysis
+
 load_credentials.py - contains a loading function for yaml files
+
 loan_payments.csv - is dataset used for this project
+
 tree.png - image used in readme
 
 
