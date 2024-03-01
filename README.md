@@ -12,6 +12,9 @@ Loading up the EDA_customer_loans.py will give the cleaning process and the anal
 ## Installation Instructions
 To install this repo onto your local machine and view the scripts, navigate to the directory you would like the project to be cloned into. In a bash terminal, you can use the command `git clone https://github.com/DARREN-LEVENE/exploratory-data-analysis---customer-loans-in-finance908` to clone this repo, then to rename the directory you can use `mv exploratory-data-analysis---customer-loans-in-finance908 --YOUR FILE NAME--`. 
 
+The exact conda enviroment for this project is stored in the enviroment.yaml file, and can be set up onto your local machine as follows:
+
+`conda env create -n <environment_name> -f environment.yaml`
 
 ## Dependancies
 Developed on Python 3.12.2 Required libraries:
