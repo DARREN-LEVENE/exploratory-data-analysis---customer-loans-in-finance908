@@ -43,13 +43,11 @@ db_utils.py - contains the extractor class, running it with your own yaml file w
 
 df_info.py - contains methods which summarise some key statistics in the dataframe
 
-df_null_imputes.py - handles the imputations for the cleaning of the file
+df_cleaning_and_analysis.py - handles the imputations for the cleaning of the file
 
 df_transformations.py - contains methods to handle the data type conversions
 
 EDA_customer_loans.ipynb - is the main notebook file which contains the cleaning and analysis
-
-load_credentials.py - contains a loading function for yaml files
 
 loan_payments.csv - is dataset used for this project
 

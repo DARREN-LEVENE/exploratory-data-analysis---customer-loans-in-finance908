@@ -1,7 +1,7 @@
-import yaml
-import psycopg2
-from sqlalchemy import create_engine
 import pandas as pd
+import yaml
+from sqlalchemy import create_engine
+
 
 #class definition
 class RDSDatabaseConnector:
@@ -42,7 +42,7 @@ class RDSDatabaseConnector:
         engine.connect()
         return engine
 
-    def RDS_db_data_extract(self, engine, table_name):
+    def rds_db_data_extract(self, engine, table_name):
         '''
         This method extracts data from the RDS database and returns it as a pandas dataframe
         Args:
@@ -75,7 +75,7 @@ if __name__ == '__main__':
 
     connector = RDSDatabaseConnector("credentials")
     engine = connector.init_db_engine()
-    df = connector.RDS_db_data_extract(engine, "loan_payments")
+    df = connector.rds_db_data_extract(engine, "loan_payments")
     filename = "loan_payments.csv"
     output_directory = "E:\WilmingtonConsultingLimitedyeJan2015\AICore\exploratory-data-analysis---customer-loans-in-finance908"
     connector.save_df_to_csv(df, filename, output_directory)

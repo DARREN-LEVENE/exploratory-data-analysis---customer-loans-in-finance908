@@ -1,15 +1,13 @@
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
-from statsmodels.graphics.gofplots import qqplot
+import seaborn as sns
 from matplotlib import pyplot
-
+from statsmodels.graphics.gofplots import qqplot
 
 class Plotter:
     '''
     This class contains methods that will visualise insights from the data in graphical form
+    #TO DO: doc strings
     '''
     def __init__ (self, df):
 
